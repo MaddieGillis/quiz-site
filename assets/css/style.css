@@ -12,7 +12,7 @@
 
 html,
 body,
-.wrapper {
+.question-space {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -21,6 +21,8 @@ body,
 body {
     font-family: var(--font-choice) ;
     background-color: var(--background-choice);
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -31,3 +33,33 @@ header {
     font-size: 48px;
 }
 
+.question-space {
+    background-color: antiquewhite;
+    font-family: var(--font-choice);
+    border-radius: 5px;
+    border-width: 1px;
+    color: hsl(206, 17%, 28%);
+    font-size: 18px;
+    margin: auto;
+    max-width: 800px;
+    padding: 30px 40px;
+    display: inline-block;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} 
+
+/*.question-space {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: wheat;
+    border-radius: 5px;
+    border-width: 1px;
+    margin: auto;
+    max-width 800px;
+    padding 30px 40px;
+
+}*/

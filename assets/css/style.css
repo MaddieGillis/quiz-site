@@ -96,3 +96,25 @@ header {
     text-align: center;
     cursor: pointer;
 }
+
+.ans1,
+.ans2,
+.ans3,
+.ans4 {
+    
+    border: none;
+    background-color: var(--box-color);
+    border-radius: 25px;
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.question-header {
+    font-size: 36px;
+}

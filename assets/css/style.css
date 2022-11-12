@@ -1,7 +1,8 @@
 :root {
     --background-choice: #4852e0; 
     --font-choice: Arial, Helvetica, sans-serif;
-
+    --text-color: #6495ED;
+    --box-color: #faebd7;
 }
 
 *,
@@ -27,6 +28,7 @@ body {
 
 header {
     font-family: var(--font-choice);
+    color: var(--box-color);
     text-align: center;
     padding: 20px;
     padding-top: 0px;
@@ -34,11 +36,11 @@ header {
 }
 
 .question-space {
-    background-color: antiquewhite;
+    background-color: var(--box-color);
     font-family: var(--font-choice);
     border-radius: 5px;
     border-width: 1px;
-    color: hsl(206, 17%, 28%);
+    color: var(--text-color);
     font-size: 18px;
     margin: auto;
     max-width: 800px;
@@ -50,16 +52,16 @@ header {
     justify-content: center;
 } 
 
-/*.question-space {
-    display: flexbox;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    background-color: wheat;
-    border-radius: 5px;
-    border-width: 1px;
-    margin: auto;
-    max-width 800px;
-    padding 30px 40px;
-
-}*/
+.startbtn {
+    border: none;
+    background-color: var(--box-color);
+    border-radius: 25px;
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+}

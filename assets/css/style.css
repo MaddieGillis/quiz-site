@@ -1,0 +1,33 @@
+:root {
+    --background-choice: #4852e0; 
+    --font-choice: Arial, Helvetica, sans-serif;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: var(--font-choice) ;
+    background-color: var(--background-choice);
+}
+
+header {
+    font-family: var(--font-choice);
+    text-align: center;
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 48px;
+}
+

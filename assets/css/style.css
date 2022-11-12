@@ -1,0 +1,67 @@
+:root {
+    --background-choice: #4852e0; 
+    --font-choice: Arial, Helvetica, sans-serif;
+    --text-color: #6495ED;
+    --box-color: #faebd7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.question-space {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: var(--font-choice) ;
+    background-color: var(--background-choice);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-family: var(--font-choice);
+    color: var(--box-color);
+    text-align: center;
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 48px;
+}
+
+.question-space {
+    background-color: var(--box-color);
+    font-family: var(--font-choice);
+    border-radius: 5px;
+    border-width: 1px;
+    color: var(--text-color);
+    font-size: 18px;
+    margin: auto;
+    max-width: 800px;
+    padding: 30px 40px;
+    display: inline-block;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} 
+
+.startbtn {
+    border: none;
+    background-color: var(--box-color);
+    border-radius: 25px;
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+}

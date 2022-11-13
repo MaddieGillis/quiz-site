@@ -9,18 +9,77 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header id="quiz-time">
-        <h1>JavaScript Quiz Time!</h1>
+   
+   <!--where the time is-->
+    <header class="timerHead">
+        <div class="row">
+            <p class="timerSection">Time: 100s</p>
+        </div>
     </header>
-    <article class="question-space">
-        <h2 id="question-spot" class="question-header">Test question</h2>
+
+
+    <!--main section-->
+    <main>
+        <!--contains all the sections of the main tag-->
+        <div class="allSecs">
+            <section id="welcome"> <!--Welcome Screen-->
+                <div class="row">
+                    <div class="empty"></div>
+                    <div class="content">
+                        <h1 class="title">Quiz Time!</h1>
+                        <p class="welcomeDescript">This is a quiz on JavaScript. There are 100 seconds to answer 5 questions. If you mark an incorrect answer it will unfortuneatly subtract 10 seconds, but please give it your all!</p>
+                        <button id="startBtn" type="button" class="btn btn-success">Start</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="allQuestions"><!--Section for the quiz questions-->
+                <div class="row">
+                    <div class="empty"></div>
+                    <div class="content">
+                        <h2 id="question">This is a test question</h2>
+                        <ul class="questionSection">
+                            <li class="questionLi"><button id="answerOne" value="0" type="button"
+                            class="btn btn-success ansBtn">1st answer</button></li>
+                            <li class="questionLi"><button id="answerTwo" value="1" type="button"
+                            class="btn btn-success ansBtn">2nd answer</button></li>
+                            <li class="questionLi"><button id="answerThree" value="2" type="button"
+                            class="btn btn-success ansBtn">3rd answer</button></li>
+                            <li class="questionLi"><button id="answerFour" value="3" type="button"
+                            class="btn btn-success ansBtn">4th answer</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="final"><!--screen to see score and enter intials-->
+                <div class="row">
+                    <div class="empty"></div>
+                    <div class="content">
+                        <h2>Game Over!</h2>
+                        <p>Final Score: <span id="score" class="playerScores">0</span> </p>
+                        <p>Please enter your initials:<span class="initialSpot" placeholder="mjg"></span><button id="submit-score" class="btn btn-success">Submit</button> </p>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+        </div>
+        <!--<article class="questionSpace" id="mainSpace">
+            <h2 id="questionSpot" class="question-header"></h2>
+            <h1>JavaScript Quiz Time!</h1>
         <ul>
-            <li><button class="ans1">Answer 1</button></li>
-            <li><button class="ans2">Answer 2</button></li>
-            <li><button class="ans3">Answer 3</button></li>
-            <li><button class="ans4">Answer 4</button></li>
+            <li><button class="ansOne" id="firstAnswer"></button></li>
+            <li><button class="ansTwo" id="secondAnswer"></button></li>
+            <li><button class="ansThree" id="thirdAnswer"></button></li>
+            <li><button class="ansFour" id="fourthAnswer"></button></li>
         </ul>
     </article>
-    <button class="startbtn">Test</button>
+    <button class="startbtn">Start</button>-->
+    </main>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

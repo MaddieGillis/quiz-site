@@ -1,5 +1,10 @@
 //variables
-var timeEl 
+var timeEl = document.querySelector("p.time");
+var secondsLeft = 100;
+var scoreEl = document.querySelector("#score");
+var welcomeEl = document.querySelector("#welcome");
+var allQuestionsEl = document.querySelector("#allQuestions");
+
 
 
 

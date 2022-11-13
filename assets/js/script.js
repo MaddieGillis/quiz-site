@@ -1,5 +1,70 @@
+//variables
+var timeEl 
 
-//Questions for quiz
+
+
+
+
+var questions = [
+    {
+        question : "What does JS stand for?",
+        answers : ["JavaScript", "Jump Start", "Jerry Seinfield", "Just Sing"],
+        correctAns : "0"
+    },
+    
+    {
+        question : "What does API stand for?",
+        answers : ["American Pony Index", "Application Programming Interface", "Are Pigeons Intelligent", "Always Point Inward"],
+        correctAns : "1"
+        
+    },
+    
+    {
+        question : "Which is an example of camel case?",
+        answers : ["Camels Are Cute", "camels-are-cute", "camelsAreCute", "CAMELSareCUTE"],
+        correctAns : "2"
+        
+    },
+    {
+        question : "Who created JavaScript?",
+        answers : ["CC Tinsley", "Hank Anderson", "Leigh Avidan", "Brendan Eich"],
+        correctAns : "3"
+        
+    },
+    {
+        question : "Which is not a primitive value",
+        answers : ["Number", "Hunting and gathering", "String", "Symbol"],
+        correctAns : "1"
+    }
+    
+]
+
+function startQuiz() {
+   // beginEl.style.display = "block";
+   questionCount = 0;
+   
+   setQuestion(questionCount);
+   
+   
+}
+
+function setQuestion(id) {
+    if (id < questions.length) {
+        questionEl.textContent = questions[id].question;
+        answerOne.textContent = questions[id].answers[0];
+        answerTwo.textContent = questions[id].anwsers[1];
+        answerThree.textContent = questions[id].answers[2];
+        answerFour.textContent = questions[id].anwsers[3];
+        
+    }
+    
+}
+
+startbtn.addEventListner("click", startQuiz);
+
+
+//Code from previous attempts
+/*//Questions for quiz
 
 //question one
 var questionOne = "What does JS stand for?";
@@ -43,18 +108,14 @@ var question = document.getElementById(questionSpot);
 var answerOne = document.getElementsByClassName(ansOne);
 var answerTwo = document.getElementsByClassName(ansTwo);
 var answerThree = document.getElementsByClassName(ansThree);
-var answerFour = document.getElementsByClassName(ansFour); */
+var answerFour = document.getElementsByClassName(ansFour); 
 var beginEl = document.querySelector("#mainSpace");
 var questionCount = 0;
 var questionEl = document.querySelector("#questionSpot");
 var answerOne = document.querySelector("#firstAnswer");
 var answerTwo = document.querySelector("#secondAnswer");
 var answerThree = document.querySelector("#thirdAnswer");
-var answerFour = document.querySelector("#fourthAnswer");
-
-
-
-
+var answerFour = document.querySelector("#fourthAnswer"); */
 //Creating questions
 
 /*
@@ -107,66 +168,9 @@ function renderQuestion() {
     answerTwo.textContent = q.answerTwo;
     answerThree.textContent = q.answerThree; 
     answerFour.textContent = q.answerFour;
-
+    
     renderQuestion();
 }
 
 
 startbtn.addEventListener("click", renderQuestion);*/
-
-var questions = [
-    {
-        question : "What does JS stand for?",
-        answers : ["JavaScript", "Jump Start", "Jerry Seinfield", "Just Sing"],
-        correctAns : "0"
-    },
-
-    {
-        question : "What does API stand for?",
-        answers : ["American Pony Index", "Application Programming Interface", "Are Pigeons Intelligent", "Always Point Inward"],
-        correctAns : "1"
-
-    },
-
-    {
-        question : "Which is an example of camel case?",
-        answers : ["Camels Are Cute", "camels-are-cute", "camelsAreCute", "CAMELSareCUTE"],
-        correctAns : "2"
-
-    },
-    {
-        question : "Who created JavaScript?",
-        answers : ["CC Tinsley", "Hank Anderson", "Leigh Avidan", "Brendan Eich"],
-        correctAns : "3"
-
-    },
-    {
-        question : "Which is not a primitive value",
-        answers : ["Number", "Hunting and gathering", "String", "Symbol"],
-        correctAns : "1"
-    }
-
-]
-
-function startQuiz() {
-   // beginEl.style.display = "block";
-    questionCount = 0;
-
-    setQuestion(questionCount);
-
-
-}
-
-function setQuestion(id) {
-    if (id < questions.length) {
-    questionEl.textContent = questions[id].question;
-    answerOne.textContent = questions[id].answers[0];
-    answerTwo.textContent = questions[id].anwsers[1];
-    answerThree.textContent = questions[id].answers[2];
-    answerFour.textContent = questions[id].anwsers[3];
-
-    }
-
-}
-
-startbtn.addEventListner("click", startQuiz);

@@ -17,7 +17,7 @@ var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
 var answerFour = document.querySelector("#answerFour");
-var submitBtn = document.querySelector("#subit-score");
+var submitBtn = document.querySelector("#submit-score");
 
 
 
@@ -63,7 +63,7 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + "s";
         
-        if (secondsLeft <= 0 || questionCount === allQuestions.length) {
+        if (secondsLeft <= 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
             allQuestionsEl.style.display = "none";
             finalEl.style.display = "block";
@@ -103,7 +103,7 @@ function checkAnswer(event) {
         secondsLeft = -10;
     }
 
-    if (questionCount < allQuestionsEl.length) {
+    if (questionCount < questions.length) {
         questionCount++;
     }
     setQuestion(questionCount);
@@ -114,7 +114,9 @@ function addScore(event) {
     finalEl.style.display = "none";
     highscoresEl.style.display = "block";
 
-    var userInitials = initiasInput.value.toUpperCase();
+
+
+    var userInitials = initialsInput.value.toUpperCase();
     scoreList.push({ initials: userInitials, score: secondsLeft})
 
     scoreList = scoreList.sort((a, b) => {
@@ -163,7 +165,7 @@ answerFour.addEventListener("click", checkAnswer);
     item.addEventListner('click', checkAnswer);
 });*/
 
-//submitBtn.addEventListener("click", addScore);
+submitBtn.addEventListener("click", addScore);
 
 
 

@@ -61,7 +61,7 @@ var questions = [
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        timeEl.textContent = `Time:${secondsLeft}s`;
+        timeEl.textContent = secondsLeft + "s";
         
         if (secondsLeft === 0 || questionCount === allQuestions.length) {
             clearInterval(timerInterval);
@@ -79,7 +79,7 @@ function startQuiz() {
    questionCount = 0;
    
    setTime();
-   setQuestion(questionCount);
+   setQuestion(questcdionCount);
    
    
 }
@@ -88,9 +88,9 @@ function setQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
         answerOne.textContent = questions[id].answers[0];
-        answerTwo.textContent = questions[id].anwsers[1];
+        answerTwo.textContent = questions[id].answers[1];
         answerThree.textContent = questions[id].answers[2];
-        answerFour.textContent = questions[id].anwsers[3];
+        answerFour.textContent = questions[id].answers[3];
         
     }
     
@@ -152,7 +152,7 @@ function displayScores() {
 
 //EventListners for buttons
 
-startBtn.addEventListner("click", startQuiz);
+startBtn.addEventListener("click", startQuiz);
 
 answerBtn.forEach(item => {
     item.addEventListner('click', checkAnswer);

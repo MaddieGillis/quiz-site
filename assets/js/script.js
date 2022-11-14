@@ -1,5 +1,5 @@
 //variables
-var timeEl = document.querySelector("p.time");
+var timeEl = document.querySelector(".timerSection");
 var secondsLeft = 100;
 var scoreEl = document.querySelector("#score");
 var welcomeEl = document.querySelector("#welcome");
@@ -12,7 +12,7 @@ var highscoresE = document.querySelector("#highscores");
 var socreListEl = document.querySelector("#score-list");
 var scoreList = [];
 var startBtn = document.querySelector("#startBtn");
-var answerBtn = document.querySelector("#button.ansBtn");
+//var answerBtn = document.querySelectorAll("#button.ansBtn");
 var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
@@ -63,7 +63,7 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + "s";
         
-        if (secondsLeft === 0 || questionCount === allQuestions.length) {
+        if (secondsLeft <= 0 || questionCount === allQuestions.length) {
             clearInterval(timerInterval);
             allQuestionsEl.style.display = "none";
             finalEl.style.display = "block";
@@ -79,7 +79,7 @@ function startQuiz() {
    questionCount = 0;
    
    setTime();
-   setQuestion(questcdionCount);
+   setQuestion(questionCount);
    
    
 }
@@ -99,11 +99,11 @@ function setQuestion(id) {
 
 function checkAnswer(event) {
     event.preventDefault();
-    if (allQuestions[questionCount].correctAnswer !== event.target.valaue) {
+    if (questions[questionCount].correctAnswer !== event.target.value) {
         secondsLeft = -10;
     }
 
-    if (questionCount < allQuestions.length) {
+    if (questionCount < allQuestionsEl.length) {
         questionCount++;
     }
     setQuestion(questionCount);
@@ -154,11 +154,16 @@ function displayScores() {
 
 startBtn.addEventListener("click", startQuiz);
 
-answerBtn.forEach(item => {
-    item.addEventListner('click', checkAnswer);
-});
+answerOne.addEventListener("click", checkAnswer);
+answerTwo.addEventListener("click", checkAnswer);
+answerThree.addEventListener("click", checkAnswer);
+answerFour.addEventListener("click", checkAnswer);
 
-submitBtn.addEventListener("click", addScore);
+/*answerBtn.forEach(item => {
+    item.addEventListner('click', checkAnswer);
+});*/
+
+//submitBtn.addEventListener("click", addScore);
 
 
 

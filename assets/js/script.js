@@ -126,8 +126,8 @@ function addScore(event) {
       });
 
       scoreListEl.textContent="";
-      for (let i = 0; i < scoreList.length; i++) {
-          let li = document.createElement("li");
+      for (i = 0; i < scoreList.length; i++) {
+          var li = document.createElement("li");
           li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
           scoreListEl.append(li);
       }
@@ -142,7 +142,7 @@ function storeScores() {
 }
 
 function displayScores() {
-    let storedScoreList = JSON.parse(localStorage.getItem("scoreList")); //parse incase someone puts extra spaces or a cat walks over the keyboard
+    var storedScoreList = JSON.parse(localStorage.getItem("scoreList")); //parse incase someone puts extra spaces or a cat walks over the keyboard
 
     
     if (storedScoreList !== null) {

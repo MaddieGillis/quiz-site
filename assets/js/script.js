@@ -4,55 +4,86 @@ var secondsLeft = 100;
 var scoreEl = document.querySelector("#score");
 var welcomeEl = document.querySelector("#welcome");
 var allQuestionsEl = document.querySelector("#allQuestions");
+var questionEl = document.querySelector("#question");
+var questionCount = 0;
+var finalEl = document.querySelector("#final");
+var initiasInput = document.querySelector("#initials");
+var highscoresE = document.querySelector("#highscores");
+var socreListEl = document.querySelector("#score-list");
+var scoreList = [];
+var startBtn = document.querySelector("#startBtn");
+var answerBtn = document.querySelector("#button.ansBtn");
+var answerOne = document.querySelector("#answerOne");
+var answerTwo = document.querySelector("#answerTwo");
+var answerThree = document.querySelector("#answerThree");
+var answerFour = document.querySelector("#answerFour");
+var submitBtn = document.querySelector("#subit-score");
 
 
 
 
-
-
+//array for the test questions
 var questions = [
     {
         question : "What does JS stand for?",
         answers : ["JavaScript", "Jump Start", "Jerry Seinfield", "Just Sing"],
-        correctAns : "0"
+        correctAnswer : "0"
     },
     
     {
         question : "What does API stand for?",
         answers : ["American Pony Index", "Application Programming Interface", "Are Pigeons Intelligent", "Always Point Inward"],
-        correctAns : "1"
+        correctAnswer : "1"
         
     },
     
     {
         question : "Which is an example of camel case?",
         answers : ["Camels Are Cute", "camels-are-cute", "camelsAreCute", "CAMELSareCUTE"],
-        correctAns : "2"
+        correctAnswer : "2"
         
     },
     {
         question : "Who created JavaScript?",
         answers : ["CC Tinsley", "Hank Anderson", "Leigh Avidan", "Brendan Eich"],
-        correctAns : "3"
+        correctAnswer : "3"
         
     },
     {
         question : "Which is not a primitive value",
         answers : ["Number", "Hunting and gathering", "String", "Symbol"],
-        correctAns : "1"
+        correctAnswer : "1"
     }
     
 ]
 
+//timer
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = `Time:${secondsLeft}s`;
+        
+        if (secondsLeft === 0 || questionCount === allQuestions.length) {
+            clearInterval(timerInterval);
+            allQuestionsEl.style.display = "none";
+            finalEl.style.display = "block";
+            scoreEl.textContent = secondsLeft;
+        }
+    }, 1000)
+}
+
+//fucntion to start the quiz
 function startQuiz() {
-   // beginEl.style.display = "block";
+   welcomeEl.style.display = "none"; //html was sectioned out so I could disapper sections like this
+   allQuestionsEl.style.display = "block";
    questionCount = 0;
    
+   setTime();
    setQuestion(questionCount);
    
    
 }
-
+//function to show quesiton and go to then next one
 function setQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
@@ -65,7 +96,63 @@ function setQuestion(id) {
     
 }
 
-startbtn.addEventListner("click", startQuiz);
+
+function checkAnswer(event) {
+    event.preventDefault();
+    if (allQuestions[questionCount].correctAnswer !== event.target.valaue) {
+        secondsLeft = -10;
+    }
+
+    if (questionCount < allQuestions.length) {
+        questionCount++;
+    }
+    setQuestion(questionCount);
+}
+
+function addScore(event) {
+    event.preventDefault();
+    finalEl.style.display = "none";
+    highscoresEl.style.display = "block";
+
+    var userInitials = initiasInput.value.toUpperCase();
+    scoreList.push({ initials: userInitials, score: secondsLeft})
+
+    scoreList = scoreList.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+
+      scoreListEl.textContent="";
+      for (let i = 0; i < scoreList.length; i++) {
+          let li = document.createElement("li");
+          li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+          scoreListEl.append(li);
+      }
+
+      //adding to local storage
+      storeScore();
+      displayScore();
+}
+
+function storeScores() {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+function displayScores() {
+    let storedScoreList = JSON.parse(localStorage.getItem("scoreList")); //parse incase someone puts extra spaces or a cat walks over the keyboard
+
+    
+    if (storedScoreList !== null) {
+        scoreList = storedScoreList;
+    }
+}
+
+
+
+startBtn.addEventListner("click", startQuiz);
 
 
 //Code from previous attempts

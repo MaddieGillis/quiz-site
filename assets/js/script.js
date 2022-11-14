@@ -7,7 +7,7 @@ var allQuestionsEl = document.querySelector("#allQuestions");
 var questionEl = document.querySelector("#question");
 var questionCount = 0;
 var finalEl = document.querySelector("#final");
-var initiasInput = document.querySelector("#initials");
+var initiasInput = document.querySelector("#initialsInput");
 var highscoresEl = document.querySelector("#highscores");
 var socreListEl = document.querySelector("#score-list");
 var scoreList = [];
@@ -116,7 +116,7 @@ function addScore(event) {
 
 
 
-    var userInitials = initialsInput.value.toUpperCase();
+    var userInitials = initialsInput;
     scoreList.push({ initials: userInitials, score: secondsLeft})
 
     scoreList = scoreList.sort((a, b) => {
@@ -135,8 +135,9 @@ function addScore(event) {
       }
 
       //adding to local storage
-      storeScore();
-      displayScore();
+      storeScoreList();
+      displayScoreList();
+      console.log(scoreList)
 }
 
 function storeScores() {

@@ -150,9 +150,18 @@ function displayScores() {
     }
 }
 
-
+//EventListners for buttons
 
 startBtn.addEventListner("click", startQuiz);
+
+answerBtn.forEach(item => {
+    item.addEventListner('click', checkAnswer);
+});
+
+submitBtn.addEventListener("click", addScore);
+
+
+
 
 
 //Code from previous attempts

@@ -8,7 +8,7 @@ var questionEl = document.querySelector("#question");
 var questionCount = 0;
 var finalEl = document.querySelector("#final");
 var initiasInput = document.querySelector("#initials");
-var highscoresE = document.querySelector("#highscores");
+var highscoresEl = document.querySelector("#highscores");
 var socreListEl = document.querySelector("#score-list");
 var scoreList = [];
 var startBtn = document.querySelector("#startBtn");
@@ -100,7 +100,7 @@ function setQuestion(id) {
 function checkAnswer(event) {
     event.preventDefault();
     if (questions[questionCount].correctAnswer !== event.target.value) {
-        secondsLeft = -10;
+        secondsLeft = -1;
     }
 
     if (questionCount < questions.length) {
@@ -127,11 +127,11 @@ function addScore(event) {
         }
       });
 
-      scoreListEl.textContent="";
+      scoreList.textContent="";
       for (i = 0; i < scoreList.length; i++) {
           var li = document.createElement("li");
           li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
-          scoreListEl.append(li);
+          scoreList.append(li);
       }
 
       //adding to local storage

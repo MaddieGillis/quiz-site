@@ -7,10 +7,10 @@ var allQuestionsEl = document.querySelector("#allQuestions");
 var questionEl = document.querySelector("#question");
 var questionCount = 0;
 var finalEl = document.querySelector("#final");
-var initiasInput = document.querySelector("#initialsInput");
+var initialsInput = document.querySelector("#initialsInput");
 var highscoresEl = document.querySelector("#highscores");
-var socreListEl = document.querySelector("#score-list");
-var scoreList = [];
+var scoreListEl = document.querySelector("#score-list");
+var scoreList = JSON.parse(localStorage.getItem("scoreList")) || []; 
 var startBtn = document.querySelector("#startBtn");
 //var answerBtn = document.querySelectorAll("#button.ansBtn");
 var answerOne = document.querySelector("#answerOne");
@@ -18,7 +18,6 @@ var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
 var answerFour = document.querySelector("#answerFour");
 var submitBtn = document.querySelector("#submit-score");
-
 
 
 
@@ -100,7 +99,7 @@ function setQuestion(id) {
 function checkAnswer(event) {
     event.preventDefault();
     if (questions[questionCount].correctAnswer !== event.target.value) {
-        secondsLeft = -1;
+        secondsLeft -=10;
     }
 
     if (questionCount < questions.length) {
@@ -116,8 +115,8 @@ function addScore(event) {
 
 
 
-    var userInitials = initialsInput;
-    scoreList.push({ initials: userInitials, score: secondsLeft})
+    var userInitials = initialsInput.value;
+    scoreList.push({ initials: userInitials, score: secondsLeft});
 
     scoreList = scoreList.sort((a, b) => {
         if (a.score < b.score) {
@@ -127,17 +126,17 @@ function addScore(event) {
         }
       });
 
-      scoreList.textContent="";
+      //scoreList.textContent="";
       for (i = 0; i < scoreList.length; i++) {
           var li = document.createElement("li");
           li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
-          scoreList.append(li);
+          scoreListEl.append(li);
       }
 
       //adding to local storage
-      storeScoreList();
-      displayScoreList();
-      console.log(scoreList)
+      storeScores();
+      displayScores();
+      console.log(scoreList);
 }
 
 function storeScores() {
@@ -148,9 +147,9 @@ function displayScores() {
     var storedScoreList = JSON.parse(localStorage.getItem("scoreList")); //parse incase someone puts extra spaces or a cat walks over the keyboard
 
     
-    if (storedScoreList !== null) {
+    /*if (storedScoreList !== null) {
         scoreList = storedScoreList;
-    }
+    }*/
 }
 
 //EventListners for buttons

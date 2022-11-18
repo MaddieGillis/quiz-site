@@ -30,6 +30,7 @@ Thank you to Alex at AskBCS
 Thank you to the class slack
 Multiple tutorials were consulted from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html
 Multiple pages on W3Schools and MDN docs were consulted
+Thank you to Tucker Barnett at the tutoring center for helping me debug the code!
 
 ## License
 Copyright 2022 Madeline Gillis
